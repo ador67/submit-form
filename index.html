@@ -44,11 +44,90 @@
        <div id="perloder">
  <div class="circle"><div class="circle"><div class="circle"><div class="circle"><div class="circle"><div class="circle"><div class="circle"><div class="circle"></div></div> </div> </div></div></div></div></div></div>
     </div>
-<h1>hello's world</h1>
+ <div class="pt-4"></div>
+<div class="container">
+  <div>
+    <h3 class="text-center">Donate Us</h3>
+  </div>
+  <div class="form-title">
+    নাম্বারটিতে "সেন্ড মানি" তে টাকা পাঠিয়ে নিচের ফর্মটি ফিলাপ করে সাবমিট করুন।We check every single transaction. 
+    😊 আর যেকোন সমস্যার জন্য<a href='https://www.facebook.com/softcoflix'> এডমিন</a> এর সাথে কন্টাক করুন...
+  </div>
+  
+  <form method="post" autocomplete="off" name="bekash">
+    <div class="form-group">
+      <label for="name">Number</label>
+      <input type="text" class="form-control" maxlength="11" placeholder="01*******" name="number" required >
+    </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">TrxID</label>
+    <input type="text" name="trxid" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter TrxID" required >
+  </div>
+ 
+  <button type="submit" name="submit" value="Send message" class="btn btn-primary">Submit</button>
+</form>
+</div>
 <div id="none">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/ex7jGbyFgpA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-   
+<script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwwyFPyqZ5PA0r4mBrO4x2mG1jswrrQIyKR7mejHtdA05M-ge2cd99BGQ_KScXPylhlFw/exec'
+            const form = document.forms['bekash']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Donation..!"))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+<!-- script code -->
+  
+        <!-- var sheetName = 'Sheet1'
+    var scriptProp = PropertiesService.getScriptProperties()
+
+    function intialSetup () {
+      var activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet()
+      scriptProp.setProperty('key', activeSpreadsheet.getId())
+    }
+
+    function doPost (e) {
+      var lock = LockService.getScriptLock()
+      lock.tryLock(10000)
+
+      try {
+      var doc = SpreadsheetApp.openById(scriptProp.getProperty('key'))
+      var sheet = doc.getSheetByName(sheetName)
+
+      var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]
+      var nextRow = sheet.getLastRow() + 1
+
+      var newRow = headers.map(function(header) {
+        return header === 'timestamp' ? new Date() : e.parameter[header]
+      })
+
+      sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow])
+
+      return ContentService
+        .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+        .setMimeType(ContentService.MimeType.JSON)
+      }
+
+      catch (e) {
+      return ContentService
+        .createTextOutput(JSON.stringify({ 'result': 'error', 'error': e }))
+        .setMimeType(ContentService.MimeType.JSON)
+      }
+
+      finally {
+      lock.releaseLock()
+      }
+    } -->
+
    <script type="text/javascript" charset="utf-8">
      
     var loader = document.getElementById("perloder");
